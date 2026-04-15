@@ -15,9 +15,9 @@ import java.sql.DriverManager;
 public class ConnectionFactory {
     // Pra criar a conexão, preciso de Dados da conexão
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL =("DB_URL");
-    private static final String USER = ("DB_USER");
-    private static final String PASSWORD = ("DB_PASS");
+    private static final String URL =System.getenv("DB_URL");
+    private static final String USER = System.getenv("DB_USER");
+    private static final String PASSWORD = System.getenv("DB_PASS");
     // 2.Métodos
     public static Connection getConnection() {
         Connection con = null;
