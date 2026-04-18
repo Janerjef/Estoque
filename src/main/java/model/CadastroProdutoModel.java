@@ -15,9 +15,11 @@ public class CadastroProdutoModel {
     private String fabricante;
     private String marca;
     private String dataFabricacao;
+    private String datavencimento;
     private long quantidade;
     private String valor;
     private String total;
+    private String status;
     
     public CadastroProdutoModel () {
     }
@@ -62,6 +64,14 @@ public class CadastroProdutoModel {
         this.dataFabricacao = dataFabricacao;
     }
 
+    public String getDataVencimento(){
+        return datavencimento;
+    }
+
+    public void setDataVencimento(String datavencimento){
+        this.datavencimento = datavencimento;
+    }
+
     public long getQuantidade() {
         return quantidade;
     }
@@ -84,5 +94,13 @@ public class CadastroProdutoModel {
 
     public void setTotal(String total) {
         this.total = total;
+    }
+
+    public String getStatus(){
+        return status;
+    }
+
+    public void setStatus(String status){
+        this.status = status;
     }
 }

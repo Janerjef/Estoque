@@ -14,6 +14,7 @@ import java.sql.DriverManager;
  */
 public class ConnectionFactory {
     // Pra criar a conexão, preciso de Dados da conexão
+    // Utilizando variaveis para segurança, elas foram criadas no .env que é ignorado pelo gitignore
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL =System.getenv("DB_URL");
     private static final String USER = System.getenv("DB_USER");

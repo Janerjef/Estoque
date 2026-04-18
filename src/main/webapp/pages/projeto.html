@@ -23,17 +23,17 @@
         <section id="resumoEstoque">
             <div class="card-resumo">
                 <h3 class="titulo-card">Entrada</h3>
-                <p class="valor-card">100</p>
+                <p class="valor-card" id="cardEntrada">0</p>
             </div>
 
             <div class="card-resumo">
                 <h3 class="titulo-card">Saída</h3>
-                <p class="valor-card">80</p>
+                <p class="valor-card" id="cardSaida">0</p>
             </div>
 
             <div class="card-resumo">
                 <h3 class="titulo-card">Total</h3>
-                <p class="valor-card">20</p>
+                <p class="valor-card" id="cardTotal">0</p>
             </div>
         </section>
         <section id="filtro">
@@ -61,6 +61,9 @@
             <div class="tabela-wrapper">
                 <table id="tabelaEstoque">
                     <thead>
+                    <tr>
+
+                    </tr>
                         <tr>
                             <th>Código de barras</th>
                             <th>Nome</th>
@@ -71,26 +74,7 @@
                             <th>Total</th>
                         </tr>
                     </thead>
-                    <tbody id="corpoTabela">
-                        <tr class="linha-item">
-                            <td>123456789</td>
-                            <td>Mouse</td>
-                            <td>Logitech</td>
-                            <td>MX</td>
-                            <td>10</td>
-                            <td>R$80,00</td>
-                            <td>R$800,00</td>
-                        </tr>
-                        <tr class="linha-item">
-                            <td>123456780</td>
-                            <td>Teclado</td>
-                            <td>Logitech</td>
-                            <td>MXC</td>
-                            <td>10</td>
-                            <td>R$90,00</td>
-                            <td>R$900,00</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="corpoTabela"></tbody>
                 </table>
             </div>
         </section>
