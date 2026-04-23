@@ -1,8 +1,10 @@
 package dao;
 
 import connection.ConnectionFactory;
-import java.sql.PreparedStatement;
 import model.CadastroUsuarioModel;
+import util.SenhaUtil;
+
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -18,6 +20,10 @@ public class CadastroUsersDAO {
         try (var con = ConnectionFactory.getConnection()){
             
             PreparedStatement stmt = con.prepareStatement(sql);
+
+            String senhaHash = SenhaUtil.gerarHash(user.getSenha());
+
+
             stmt.setString(1, user.getNome()); // namefirst
             stmt.setString(2, user.getSobrenome());
             stmt.setString(3, user.getMatricula());
@@ -34,7 +40,7 @@ public class CadastroUsersDAO {
             stmt.setLong(14, user.getNumero());
             stmt.setString(15, user.getComplemento());
             stmt.setString(16, user.getNomeUsuario()); //username
-            stmt.setString(17, user.getSenha()); //psw
+            stmt.setString(17, senhaHash); //psw
             stmt.setString(18, user.getFuncao());
             
             stmt.executeUpdate();
