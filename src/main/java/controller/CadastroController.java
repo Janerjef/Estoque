@@ -10,19 +10,18 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import model.CadastroUsuarioModel;
 
-/**
- *
- * @author 232.004390
- */
+import java.io.IOException;
+
+
 @WebServlet("/cadastro")
 public class CadastroController extends HttpServlet {
-    
+    // A "ponte" entre o banco e o usuario
      protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            // recebe uma requisição do usuario
             throws ServletException, IOException {
-        
+
         CadastroUsuarioModel user = new CadastroUsuarioModel();
         
         user.setNome(request.getParameter("nameFirst"));
@@ -45,7 +44,9 @@ public class CadastroController extends HttpServlet {
         user.setComplemento(request.getParameter("complemento"));
         
         CadastroUsersDAO dao = new CadastroUsersDAO();
-        
+        //comunica com o model para os dados processarem
+
+        //decide para onde vai
         if(dao.cadastrar(user)) {
             response.sendRedirect(request.getContextPath() +"pages/dashboard.html");
         } else {

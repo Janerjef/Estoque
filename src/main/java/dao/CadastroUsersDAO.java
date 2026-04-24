@@ -6,10 +6,6 @@ import util.SenhaUtil;
 
 import java.sql.PreparedStatement;
 
-/**
- *
- * @author 232.004390
- */
 public class CadastroUsersDAO {
     
     public boolean cadastrar(CadastroUsuarioModel user) {

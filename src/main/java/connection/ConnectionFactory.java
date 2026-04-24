@@ -28,9 +28,10 @@ public class ConnectionFactory {
                 System.out.println("Variavel de ambiente com problema");
                 return null;
             }
-            Class.forName(DRIVER);
-            con = DriverManager.getConnection(URL, USER, PASSWORD);
+            Class.forName(DRIVER); // chama o driver
+            con = DriverManager.getConnection(URL, USER, PASSWORD); // inicia a conexão utilizando a url,user e senha
             System.out.println("Banco de dados conectado.");
+            //tratamento de erro
         } catch(ClassNotFoundException e){
             System.out.println("Erro no JDBC");
             e.printStackTrace();

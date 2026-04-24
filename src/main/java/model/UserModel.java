@@ -13,11 +13,15 @@ public class UserModel {
     private int id;
     private String username;
     private String password;
+    private String funcao;
     
     public UserModel () {
         
     }
-    
+
+    //falta lombok
+
+
     public String getUsername () {
         return this.username;
     }
@@ -35,3 +39,10 @@ public class UserModel {
     }
     
 }
+    public int getId(){
+        return id;
+    }
+
+    public void setId (int id){
+        this.id = id;
+    }
