@@ -6,9 +6,11 @@ async function validarLogin(){
         console.log("PERFIL FRONT: ", dado.perfil);
 
         if(!dado.perfil || dado.perfil.toLowserCase() !== "admin"){
-            
+            document.getElementById(".btn-menu").style.display = "none";
         }
     }catch(e){
-
+            console.erro("Erro ao verificar o perfil", e);
     }
 }
+
+validarLogin();

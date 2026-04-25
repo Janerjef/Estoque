@@ -8,17 +8,18 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet("/api/perfil")
-public class Perfilcontroller extends HttpServlet {
+@WebServlet("/logout")
+public class LogoutController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+    throws IOException {
+
         HttpSession session = request.getSession(false);
 
-        String perfil = (String) session.getAttribute("perfil");
-
-        response.setContentType("aplication/json");
-        response.getWriter().write("{\"perfil\":\"" + perfil + "\"}");
-
+        if(session != null){
+            session.invalidate();
+        }
+        response.sendRedirect(request.getContextPath() + "/index.html");
     }
+
 }

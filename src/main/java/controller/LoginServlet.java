@@ -11,8 +11,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.io.IOException;
 import model.UserModel;
+
+import java.io.IOException;
 
 @WebServlet("/api/login")
 public class LoginServlet extends HttpServlet {
@@ -35,8 +36,8 @@ public class LoginServlet extends HttpServlet {
             HttpSession session =
                     request.getSession();
             
-            session.setAttribute("usuario", usuario.getUsername());
-            session.setAttribute("perfil", usuario.getFuncao());
+            session.setAttribute("usuario", user.getUsername());
+            session.setAttribute("perfil", user.getFuncao());
 
             
             response.sendRedirect(request.getContextPath() +"/pages/projeto.html");

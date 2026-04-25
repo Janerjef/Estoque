@@ -37,8 +37,7 @@ public class UserModel {
     public void setPassword (String password) {
         this.password = password;
     }
-    
-}
+
     public int getId(){
         return id;
     }
@@ -46,3 +45,8 @@ public class UserModel {
     public void setId (int id){
         this.id = id;
     }
+
+    public String getFuncao(){return this.funcao; }
+
+    public void setFuncao(String funcao){this.funcao = funcao;}
+}

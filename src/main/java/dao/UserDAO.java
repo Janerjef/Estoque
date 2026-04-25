@@ -33,11 +33,11 @@ public class UserDAO {
                         userModel.getPassword(),
                         hashBanco);
 
-                if(SenhaValida){
+                if(senhaValida){
                     UserModel user = new UserModel();
-                    user.getUsername(rs.getString("username"));
-                    user.getPassword(hashBanco);
-                    user.getFuncao(rs.getString("funcao"));
+                    user.setUsername(rs.getString("username"));
+                    user.setPassword(hashBanco);
+                    user.setFuncao(rs.getString("funcao"));
 
                     return user;
                 }
@@ -45,7 +45,7 @@ public class UserDAO {
             return null;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         } 
     }
 }
