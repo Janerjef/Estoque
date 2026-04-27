@@ -27,7 +27,7 @@ public class AuthFilter implements Filter {
             return;
         }
         if(session == null || session.getAttribute("usuario") == null) {
-            res.sendRedirect(req.getContextPath()+"index/html");
+            res.sendRedirect(req.getContextPath()+"index.html");
             return;
         }
 
