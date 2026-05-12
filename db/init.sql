@@ -36,7 +36,7 @@ INSERT INTO users (
     sexo, dtaNascimento, email, telefone, funcao,
     cep, endereco, numero, bairro, cidade, estado, complemento
 ) VALUES (
-    'admin', '1234', 'Admin', 'Sistema', '0001', '000.000.000-00',
+    'admin', '$2a$10$htQv/2ebpKfJiG0eYwbB/erAwhcsjkR/oStjPhwR.QQOyWqC3uUmK', 'Admin', 'Sistema', '0001', '000.000.000-00',
     'Masculino', '1990-01-01', 'admin@email.com', '71999999999', 'Administrador',
     '40000-000', 'Rua Exemplo', '123', 'Centro', 'Salvador', 'BA', 'N/A'
 );
@@ -52,4 +52,5 @@ CREATE TABLE produtos{
    valor decimal(10,2),
    total decimal(10,2),
     status varchar(100)
-}
+};
+

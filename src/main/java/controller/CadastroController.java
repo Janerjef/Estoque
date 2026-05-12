@@ -17,6 +17,13 @@ import java.io.IOException;
 
 @WebServlet("/cadastro")
 public class CadastroController extends HttpServlet {
+      //VOU TER QUE FAZER UM DOGET
+      /*protected void doGet(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException{
+            request.getRequestDispatcher("/pages/cadastro.html").forward(request,response);
+      }*/
+
+
     // A "ponte" entre o banco e o usuario
      protected void doPost(HttpServletRequest request, HttpServletResponse response)
             // recebe uma requisição do usuario
@@ -48,7 +55,7 @@ public class CadastroController extends HttpServlet {
 
         //decide para onde vai
         if(dao.cadastrar(user)) {
-            response.sendRedirect(request.getContextPath() +"pages/dashboard.html");
+            response.sendRedirect(request.getContextPath() +"pages/projeto.html");
         } else {
             response.sendRedirect("pages/cadastro.html");
         }

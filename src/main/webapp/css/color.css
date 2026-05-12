@@ -1,8 +1,7 @@
 :root {
-    /* Cores principais */
-    --primary-dark: #0f4c75;
-    --primary-medium: #3282b8;
-    --primary-light: #bbe1fa;
+    --primary-dark: #1a1a1a;
+    --primary-medium: #555555;
+    --primary-light: #d9d9d9;
 
     /* Cor de ação (botões / confirmação) */
     --success: #1b9c85;

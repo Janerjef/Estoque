@@ -1,27 +1,36 @@
 body {
     height: 100vh;
     background: linear-gradient(150deg, var(--primary-dark), var(--primary-medium));
-    display: flex;
-    justify-content: center;
     align-items: center;
+    height: 100vh;
+    justify-content: center;
+
 }
 
 /*contaier principal*/
 .container {
-    background-color: var(--white);
-    padding: 40px;
-    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
     box-shadow: 0px 8px 25px var(--shadow-default);
-    border-radius: 10px;
+    width: 47%;
+    height: 100vh;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    margin-left: auto;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    gap: 10px;
+
 }
 
-/* Titulo */
 .container h1 {
     text-align: center;
     margin-bottom: 20px;
     color: var(--gray-dark);
 }
-
 label {
     display: block;
     margin-bottom: 5px;
@@ -30,18 +39,19 @@ label {
 }
 
 input {
-    width: 100%;
+    width: 300px;
     padding: 5px;
     margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid var(--gray-medium);
-    transition: 0.3s; 
-    
+    transition: 0.3s;
+    box-sizing: border-box;
+
 }
 
 input:focus {
     border-color: var(--primary-medium);
-    outline: none; 
+    outline: none;
     box-shadow: 0 0 5px var(--primary-medium);
 }
 
@@ -52,9 +62,10 @@ button {
     border: none;
     border-radius: 5px;
     color: var(--white);
-    
+
 }
 
 button:hover {
     background-color: var(--success-hover);
 }
+

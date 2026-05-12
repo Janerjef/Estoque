@@ -28,7 +28,7 @@ public class CadastroProdutoContoller {
         CadastroProdutosDAO dao = new CadastroProdutosDAO();
 
         if(dao.cadastrar(produto)) {
-            response.sendRedirect(request.getContextPath() + "pages/dashboard.html");
+            response.sendRedirect(request.getContextPath() + "pages/projeto.html");
         }else{
             response.sendRedirect(request.getContextPath() + "pages/cadastroProdutos.html");
         }
