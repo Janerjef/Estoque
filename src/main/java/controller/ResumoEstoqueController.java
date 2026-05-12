@@ -16,7 +16,7 @@ import java.util.Map;
 
 @WebServlet("/api/resumo")
 public class ResumoEstoqueController extends HttpServlet {
-    protected void get(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
             String sql = """

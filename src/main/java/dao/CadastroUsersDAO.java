@@ -19,25 +19,24 @@ public class CadastroUsersDAO {
 
             String senhaHash = SenhaUtil.gerarHash(user.getSenha());
 
-
-            stmt.setString(1, user.getNome()); // namefirst
-            stmt.setString(2, user.getSobrenome());
-            stmt.setString(3, user.getMatricula());
-            stmt.setString(4, user.getCpf());
-            stmt.setString(5, user.getSexo());
-            stmt.setString(6, user.getDtaNascimento());
-            stmt.setString(7, user.getEmail());
-            stmt.setString(8, user.getTelefone());
-            stmt.setLong(9, user.getCep());
-            stmt.setString(10, user.getEndereco());
-            stmt.setString(11, user.getEstado());
-            stmt.setString(12, user.getBairro());
-            stmt.setString(13, user.getCidade());
-            stmt.setLong(14, user.getNumero());
-            stmt.setString(15, user.getComplemento());
-            stmt.setString(16, user.getNomeUsuario()); //username
-            stmt.setString(17, senhaHash); //psw
-            stmt.setString(18, user.getFuncao());
+            stmt.setString(1, user.getNomeUsuario()); // username
+            stmt.setString(2, senhaHash); // psw
+            stmt.setString(3, user.getNome()); // nameFirst
+            stmt.setString(4, user.getSobrenome());
+            stmt.setString(5, user.getDtaNascimento());
+            stmt.setString(6, user.getMatricula());
+            stmt.setString(7, user.getCpf());
+            stmt.setString(8, user.getSexo());
+            stmt.setString(9, user.getEmail());
+            stmt.setString(10, user.getTelefone());
+            stmt.setString(11, user.getFuncao());
+            stmt.setLong(12, user.getCep());
+            stmt.setString(13, user.getEndereco());
+            stmt.setString(14, user.getBairro());
+            stmt.setString(15, user.getCidade());
+            stmt.setString(16, user.getEstado());
+            stmt.setLong(17, user.getNumero());
+            stmt.setString(18, user.getComplemento());
             
             stmt.executeUpdate();
             

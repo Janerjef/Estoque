@@ -13,7 +13,7 @@ import java.util.List;
 
 @WebServlet("/api/estoque")
 public class EstoqueController extends HttpServlet {
-    protected void get(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException{
 
 
