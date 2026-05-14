@@ -19,12 +19,12 @@ public class CadastroUsuarioModel {
     private String dtaNascimento;
     private String email;
     private String telefone;
-    private long cep;
+    private String cep;
     private String endereco;
     private String estado;
     private String bairro;
     private String cidade;
-    private long numero;
+    private String numero;
     private String complemento;
     private String nomeUsuario;
     private String senha;
@@ -57,11 +57,11 @@ public class CadastroUsuarioModel {
         this.cpf = cpf;
     }
     
-    public long getCep () {
+    public String getCep () {
         return this.cep;
     }
     
-    public void setCep (long cep) {
+    public void setCep (String cep) {
         this.cep = cep;
     }
     
@@ -69,7 +69,7 @@ public class CadastroUsuarioModel {
         return this.endereco;
     }
     
-    public void setEndereco (String nome) {
+    public void setEndereco (String endereco) {
         this.endereco = endereco;
     }
     
@@ -97,11 +97,11 @@ public class CadastroUsuarioModel {
         this.cidade = cidade;
     }
     
-    public long getNumero () {
+    public String getNumero () {
         return this.numero;
     }
     
-    public void setNumero (long numero) {
+    public void setNumero (String numero) {
         this.numero = numero;
     }
     
@@ -117,7 +117,7 @@ public class CadastroUsuarioModel {
         return this.nomeUsuario;
     }
     
-    public void setNomeusuario (String nomeUsuario) {
+    public void setNomeUsuario (String nomeUsuario) {
         this.nomeUsuario = nomeUsuario;
     }
     
@@ -138,7 +138,7 @@ public class CadastroUsuarioModel {
     }
     
     public String getMatricula (){
-        return this.matricula = matricula;
+        return this.matricula;
     }
     
     public void setMatricula (String matricula) {

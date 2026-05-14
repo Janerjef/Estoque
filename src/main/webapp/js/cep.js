@@ -40,9 +40,9 @@ async function buscarCep() {
         preencherCampos(dados);
         campoCep.style.borderColor = "green";
         
-        campoCep.value = cep.replace(/(\d{5}) (\d{3})/, "$1-$2");
+        campoCep.value = cep.replace(/(\d{5})(\d{3})/, "$1-$2");
         
-        document.getElementById("numero").focus; 
+        document.getElementById("numero").focus();
         
     } catch (error) {
         alert("Verifique a conexão com a internet");
@@ -58,8 +58,7 @@ function preencherCampos(dados) {
         document.getElementById("cidade").value = "Buscando CEP...";
         document.getElementById("bairro").value = "Buscando CEP...";
         document.getElementById("estado").value = "Buscando CEP...";
-        document.getElementById("numero").value = "Buscando CEP...";
-        document.getElementById("complemento").value = "Buscando CEP...";
+
         
         return;
     }

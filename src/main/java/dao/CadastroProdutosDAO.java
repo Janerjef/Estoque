@@ -16,7 +16,7 @@ public class CadastroProdutosDAO {
     public boolean cadastrar(CadastroProdutoModel Produto) {
         String sql = "INSERT INTO produtos" +
                 "(codigo_barras,nome_produtos,fabricante,data_fabricacao,data_vencimento,quantidade,valor,total )"
-                + "VALUE(?,?,?,?,?,?,?,? )";
+                + "VALUES (?,?,?,?,?,?,?,? )";
         // executa um comando em sql
         try (var con = ConnectionFactory.getConnection()) {
             //chama a a função do connection factory para abrir uma conexão

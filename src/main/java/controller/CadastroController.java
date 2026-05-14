@@ -32,22 +32,22 @@ public class CadastroController extends HttpServlet {
         CadastroUsuarioModel user = new CadastroUsuarioModel();
         
         user.setNome(request.getParameter("nameFirst"));
-        user.setSobrenome(request.getParameter("sobreNome"));
+        user.setSobrenome(request.getParameter("sobrenome"));
         user.setMatricula(request.getParameter("matricula"));
         user.setCpf(request.getParameter("cpf"));
         user.setSexo(request.getParameter("sexo"));
         user.setDtaNascimento(request.getParameter("dtaNascimento"));
         user.setEmail(request.getParameter("email"));
         user.setTelefone(request.getParameter("telefone"));
-        user.setNomeusuario(request.getParameter("usuario"));
+        user.setNomeUsuario(request.getParameter("usuario"));
         user.setSenha(request.getParameter("senha"));
         user.setFuncao(request.getParameter("funcao"));
-        user.setCep(Long.parseLong(request.getParameter("cep")));
+        user.setFuncao(request.getParameter("cep"));;
         user.setEndereco(request.getParameter("endereco"));
         user.setCidade(request.getParameter("cidade"));
         user.setBairro(request.getParameter("bairro"));
         user.setEstado(request.getParameter("estado"));
-        user.setNumero(Long.parseLong(request.getParameter("numero")));
+        user.setFuncao(request.getParameter("numero"));
         user.setComplemento(request.getParameter("complemento"));
         
         CadastroUsersDAO dao = new CadastroUsersDAO();
@@ -55,9 +55,9 @@ public class CadastroController extends HttpServlet {
 
         //decide para onde vai
         if(dao.cadastrar(user)) {
-            response.sendRedirect(request.getContextPath() +"pages/projeto.html");
+            response.sendRedirect(request.getContextPath() +"/index.html");
         } else {
-            response.sendRedirect("pages/cadastro.html");
+            response.sendRedirect(request.getContextPath() + "/pages/cadastro.html");
         }
     }
 }
