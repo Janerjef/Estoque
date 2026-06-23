@@ -4,12 +4,10 @@
  */
 package model;
 
-/**
- *
- * @author 232.004390
- */
+
 public class CadastroProdutoModel {
-    
+
+    private int ID;
     private String codigoBarras;
     private String nomeProduto;
     private String fabricante;
@@ -20,8 +18,18 @@ public class CadastroProdutoModel {
     private String valor;
     private String total;
     private String status;
-    
-    public CadastroProdutoModel () {
+    private String prateleira;
+    private int estoqueMínimo;
+
+    public CadastroProdutoModel() {
+    }
+
+    public int getID() {
+        return this.ID;
+    }
+
+    public void setId(int id) {
+        this.ID = ID;
     }
 
     public String getCodigoBarras() {
@@ -64,11 +72,11 @@ public class CadastroProdutoModel {
         this.dataFabricacao = dataFabricacao;
     }
 
-    public String getDataVencimento(){
+    public String getDataVencimento() {
         return datavencimento;
     }
 
-    public void setDataVencimento(String datavencimento){
+    public void setDataVencimento(String datavencimento) {
         this.datavencimento = datavencimento;
     }
 
@@ -96,11 +104,24 @@ public class CadastroProdutoModel {
         this.total = total;
     }
 
-    public String getStatus(){
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(String status){
+    public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getPrateleira() {
+        return prateleira;
+    }
+
+    public void setPrateleira(String prateleira) {
+        this.prateleira = this.prateleira;
+    }
+
+    public int getEtoqueMínimo() {return estoqueMínimo ;}
+
+    public void setEtoqueMínimo(int estoqueMínimo){ this.estoqueMínimo = estoqueMínimo ;}
+
 }

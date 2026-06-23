@@ -42,13 +42,14 @@ public class CadastroController extends HttpServlet {
         user.setNomeUsuario(request.getParameter("usuario"));
         user.setSenha(request.getParameter("senha"));
         user.setFuncao(request.getParameter("funcao"));
-        user.setFuncao(request.getParameter("cep"));;
+        user.setCep(request.getParameter("cep"));;
         user.setEndereco(request.getParameter("endereco"));
         user.setCidade(request.getParameter("cidade"));
         user.setBairro(request.getParameter("bairro"));
         user.setEstado(request.getParameter("estado"));
-        user.setFuncao(request.getParameter("numero"));
+        user.setNumero(request.getParameter("numero"));
         user.setComplemento(request.getParameter("complemento"));
+
         
         CadastroUsersDAO dao = new CadastroUsersDAO();
         //comunica com o model para os dados processarem

@@ -1,6 +1,6 @@
 USE estoque;
 
-CREATE TABLE users (
+    CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     
     username VARCHAR(50) NOT NULL,
@@ -55,4 +55,14 @@ CREATE TABLE produtos
     status          varchar(100)
 );
 
+ALTER TABLE users
+    ADD COLUMN  marca VARCHAR(100);
 
+
+
+ALTER TABLE users
+    ADD COLUMN  prateleira VARCHAR(100);
+
+
+ALTER TABLE users
+    ADD COLUMN  estoque_minimo INT DEFAULT 0;

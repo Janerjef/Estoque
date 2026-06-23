@@ -21,7 +21,8 @@ public class AuthFilter implements Filter {
         HttpSession session = req.getSession(false);
         String uri = req.getRequestURI();
 
-        if(uri.contains("index.html") || uri.contains("login") || uri.contains("css") || uri.contains("js") || uri.contains("cadastro.html") || uri.endsWith("/cadastro")){
+        if(uri.contains("index.html") || uri.contains("login") || uri.contains("css") || uri.contains("js") ||
+                uri.contains("cadastro.html") || uri.endsWith("/cadastro") || uri.endsWith("/api/estoque")){
             chain.doFilter(request, response);
 
             return;
@@ -33,7 +34,7 @@ public class AuthFilter implements Filter {
 
         String perfil = (String) session.getAttribute("perfil");
 
-        if(uri.contains("cadastro") && !"Administrador".equals(perfil)){
+        if(uri.contains("cadastroProduto") && !"Administrador".equals(perfil)){
             res.sendError(HttpServletResponse.SC_FORBIDDEN);
             return;
         }

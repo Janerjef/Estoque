@@ -10,8 +10,8 @@ import model.CadastroProdutoModel;
 
 import java.io.IOException;
 
-@WebServlet("/cadastroProdutos")
-public class CadastroProdutoContoller extends HttpServlet {
+@WebServlet("/api/produto/editar")
+public class EditarProdutoController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -28,15 +28,17 @@ public class CadastroProdutoContoller extends HttpServlet {
         produto.setValor(request.getParameter("valor"));
         produto.setTotal(request.getParameter("total"));
         produto.setStatus(request.getParameter("status"));
+        produto.setId(Integer.parseInt(request.getParameter("id")));
         produto.setPrateleira(request.getParameter("prateleira"));
         produto.setEtoqueMínimo(Integer.parseInt("EtoqueMínimo"));
 
-        CadastroProdutosDAO dao = new CadastroProdutosDAO();
 
-        if(dao.cadastrar(produto)) {
+        CadastroProdutosDAO dao = new CadastroProdutosDAO();
+        if (dao.atualizar(produto)) {
             response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
-        }else{
+        } else {
             response.sendRedirect(request.getContextPath() + "/pages/cadastroProdutos.html");
         }
     }
+
 }
