@@ -11,7 +11,7 @@ async function carregarEstoque(){
               <td>${item.codigoBarras}</td>    
               <td>${item.nomeProduto}</td>
               <td>${item.fabricante}</td>
-              <td>${item.marca}</td>
+              <td>${item.Marca}</td>
               <td>${item.quantidade}</td>
               <td>${item.valor}</td>
               <td>${item.total}</td>

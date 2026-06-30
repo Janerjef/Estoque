@@ -28,7 +28,7 @@ public class CadastroProdutoContoller extends HttpServlet {
         produto.setValor(request.getParameter("valor"));
         produto.setTotal(request.getParameter("total"));
         produto.setStatus(request.getParameter("status"));
-        produto.setPrateleira(request.getParameter("prateleira"));
+        produto.setPrateleira(request.getParameter("Prateleira"));
         produto.setEstoqueMínimo(Integer.parseInt(request.getParameter("EstoqueMínimo")));
 
         CadastroProdutosDAO dao = new CadastroProdutosDAO();

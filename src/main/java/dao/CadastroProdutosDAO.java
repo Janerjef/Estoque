@@ -15,7 +15,7 @@ public class CadastroProdutosDAO {
 
     public boolean cadastrar(CadastroProdutoModel Produto) {
         String sql = "INSERT INTO produtos" +
-                "(codigo_barras,nome_produtos,fabricante,data_fabricacao,data_vencimento,quantidade,valor,total,status,prateleira,estoque_mínimo)"
+                "(codigo_barras,nome_produtos,fabricante,data_fabricacao,data_vencimento,quantidade,valor,total,status,prateleira,estoque_minimo)"
                 + "VALUES (?,?,?,?,?,?,?,?,?,?,? )";
         // executa um comando em sql
         try (var con = ConnectionFactory.getConnection()) {
@@ -57,7 +57,7 @@ public class CadastroProdutosDAO {
                 "total = ?, " +
                 "status = ?, " +
                 "prateleira = ?," +
-                "estoque_mínimo = ?" +
+                "estoque_minimo = ?" +
                 "WHERE id = ?";
 
         try (var con = ConnectionFactory.getConnection()) {
