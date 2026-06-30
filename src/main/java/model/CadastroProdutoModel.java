@@ -29,7 +29,7 @@ public class CadastroProdutoModel {
     }
 
     public void setId(int id) {
-        this.ID = ID;
+        this.ID = id;
     }
 
     public String getCodigoBarras() {
@@ -117,11 +117,11 @@ public class CadastroProdutoModel {
     }
 
     public void setPrateleira(String prateleira) {
-        this.prateleira = this.prateleira;
+        this.prateleira = prateleira;
     }
 
-    public int getEtoqueMínimo() {return estoqueMínimo ;}
+    public int getEstoqueMínimo() {return estoqueMínimo ;}
 
-    public void setEtoqueMínimo(int estoqueMínimo){ this.estoqueMínimo = estoqueMínimo ;}
+    public void setEstoqueMínimo(int estoqueMínimo){ this.estoqueMínimo = estoqueMínimo ;}
 
 }

@@ -35,7 +35,7 @@ public class CadastroProdutosDAO {
             stmt.setString(8, Produto.getTotal());
             stmt.setString(9, Produto.getStatus());
             stmt.setString(10, Produto.getPrateleira());
-            stmt.setInt(11, Produto.getEtoqueMínimo());
+            stmt.setInt(11, Produto.getEstoqueMínimo());
             stmt.executeUpdate();
             // atualiza no banco
             return true;
@@ -77,7 +77,7 @@ public class CadastroProdutosDAO {
             stmt.setString(8, Produto.getTotal());
             stmt.setString(9, Produto.getStatus());
             stmt.setString(10, Produto.getPrateleira());
-            stmt.setInt(11, Produto.getEtoqueMínimo() );
+            stmt.setInt(11, Produto.getEstoqueMínimo() );
             stmt.setInt(12,Produto.getID());
 
             stmt.executeUpdate();
@@ -116,13 +116,13 @@ public class CadastroProdutosDAO {
 
 
             if(nome != null && !nome.isEmpty()){
-                sql.append("AND LOWER( nome_produto ) LIKE ?");
+                sql.append(" AND LOWER( nome_produto ) LIKE ?");
             }
             if(tipo != null && tipo.isEmpty()){
-                sql.append("AND status = ?");
+                sql.append(" AND status = ?");
             }
             if(data != null && data.isEmpty()){
-                sql.append("AND data_fabricacao = ?");
+                sql.append(" AND data_fabricacao = ?");
             }
 
             try(Connection conn = ConnectionFactory.getConnection();
@@ -155,7 +155,7 @@ public class CadastroProdutosDAO {
                     p.setTotal(rs.getString("total"));
                     p.setStatus(rs.getString("status"));
                     p.setPrateleira(rs.getString("prateleira"));
-                    p.setEtoqueMínimo(rs.getInt("EtoqueMínimo"));
+                    p.setEstoqueMínimo(rs.getInt("EstoqueMínimo"));
 
                     lista.add(p);
                 }

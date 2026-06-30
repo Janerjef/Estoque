@@ -27,7 +27,6 @@ USE estoque;
     cidade VARCHAR(100),
     estado VARCHAR(50),
     complemento VARCHAR(150),
-    
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -55,14 +54,14 @@ CREATE TABLE produtos
     status          varchar(100)
 );
 
-ALTER TABLE users
+ALTER TABLE produtos
     ADD COLUMN  marca VARCHAR(100);
 
 
 
-ALTER TABLE users
+ALTER TABLE produtos
     ADD COLUMN  prateleira VARCHAR(100);
 
 
-ALTER TABLE users
+ALTER TABLE produtos
     ADD COLUMN  estoque_minimo INT DEFAULT 0;
