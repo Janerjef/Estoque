@@ -15,8 +15,8 @@ public class CadastroProdutosDAO {
 
     public boolean cadastrar(CadastroProdutoModel Produto) {
         String sql = "INSERT INTO produtos" +
-                "(codigo_barras,nome_produtos,fabricante,data_fabricacao,data_vencimento,quantidade,valor,total,status,prateleira,estoque_minimo)"
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,? )";
+                "(codigo_barras,nome_produtos,fabricante,marca,data_fabricacao,data_vencimento,quantidade,valor,total,status,prateleira,estoque_minimo)"
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,? )";
         // executa um comando em sql
         try (var con = ConnectionFactory.getConnection()) {
             //chama a a função do connection factory para abrir uma conexão
@@ -29,13 +29,14 @@ public class CadastroProdutosDAO {
             stmt.setString(2, Produto.getNomeProduto());
             stmt.setString(3, Produto.getFabricante());
             stmt.setString(4, Produto.getDataFabricacao());
-            stmt.setString(5, Produto.getDataVencimento());
-            stmt.setLong(6, Produto.getQuantidade());
-            stmt.setString(7, Produto.getValor());
-            stmt.setString(8, Produto.getTotal());
-            stmt.setString(9, Produto.getStatus());
-            stmt.setString(10, Produto.getPrateleira());
-            stmt.setInt(11, Produto.getEstoqueMínimo());
+            stmt.setString(5, Produto.getMarca());
+            stmt.setString(6, Produto.getDataVencimento());
+            stmt.setLong(7, Produto.getQuantidade());
+            stmt.setString(8, Produto.getValor());
+            stmt.setString(9, Produto.getTotal());
+            stmt.setString(10, Produto.getStatus());
+            stmt.setString(11, Produto.getPrateleira());
+            stmt.setInt(12, Produto.getEstoqueMínimo());
             stmt.executeUpdate();
             // atualiza no banco
             return true;
@@ -50,6 +51,7 @@ public class CadastroProdutosDAO {
                 "codigo_barras = ?, " +
                 "nome_produtos = ?, " +
                 "fabricante = ?, " +
+                "marca = ?, " +
                 "data_fabricacao = ?, " +
                 "data_vencimento = ?, " +
                 "quantidade = ?, " +
@@ -70,15 +72,16 @@ public class CadastroProdutosDAO {
 
             stmt.setString(2, Produto.getNomeProduto());
             stmt.setString(3, Produto.getFabricante());
-            stmt.setString(4, Produto.getDataFabricacao());
-            stmt.setString(5, Produto.getDataVencimento());
-            stmt.setLong(6, Produto.getQuantidade());
-            stmt.setString(7, Produto.getValor());
-            stmt.setString(8, Produto.getTotal());
-            stmt.setString(9, Produto.getStatus());
-            stmt.setString(10, Produto.getPrateleira());
-            stmt.setInt(11, Produto.getEstoqueMínimo() );
-            stmt.setInt(12,Produto.getID());
+            stmt.setString(4,Produto.getMarca());
+            stmt.setString(5, Produto.getDataFabricacao());
+            stmt.setString(6, Produto.getDataVencimento());
+            stmt.setLong(7, Produto.getQuantidade());
+            stmt.setString(8, Produto.getValor());
+            stmt.setString(9, Produto.getTotal());
+            stmt.setString(10, Produto.getStatus());
+            stmt.setString(11, Produto.getPrateleira());
+            stmt.setInt(12, Produto.getEstoqueMínimo() );
+            stmt.setInt(13,Produto.getID());
 
             stmt.executeUpdate();
             // atualiza no banco
@@ -109,7 +112,7 @@ public class CadastroProdutosDAO {
 
     }
 
-        public List<CadastroProdutoModel> listarComFiltro(String nome, String tipo, String data) {
+        public List<CadastroProdutoModel> listarComFiltro(String nome, String tipo, String data, String id){
             List<CadastroProdutoModel> lista = new ArrayList<>();
 
             StringBuilder sql = new StringBuilder("SELECT * FROM produtos WHERE 1=1");
@@ -123,6 +126,9 @@ public class CadastroProdutosDAO {
             }
             if(data != null && data.isEmpty()){
                 sql.append(" AND data_fabricacao = ?");
+            }
+            if (id != null && !id.isEmpty()) {
+                sql.append(" AND id = ?");
             }
 
             try(Connection conn = ConnectionFactory.getConnection();
@@ -149,20 +155,24 @@ public class CadastroProdutosDAO {
                     p.setCodigoBarras(rs.getString("codigo_barras"));
                     p.setNomeProduto(rs.getString("nome_produtos"));
                     p.setFabricante(rs.getString("fabricante"));
+                    p.setMarca(rs.getString("marca"));
                     p.setDataFabricacao(rs.getString("data_fabricacao"));
                     p.setQuantidade(rs.getLong("quantidade"));
                     p.setValor(rs.getString("valor"));
                     p.setTotal(rs.getString("total"));
                     p.setStatus(rs.getString("status"));
                     p.setPrateleira(rs.getString("prateleira"));
-                    p.setEstoqueMínimo(rs.getInt("EstoqueMínimo"));
+                    p.setEstoqueMínimo(rs.getInt("estoque_minimo"));
 
                     lista.add(p);
+
                 }
+
             }catch( Exception e){
                 e.printStackTrace();
             }
 
         return lista;
+
     }
 }

@@ -20,14 +20,17 @@ public class EstoqueController extends HttpServlet {
         String nome = request.getParameter("nome");
         String tipo = request.getParameter("tipo");
         String data = request.getParameter("data");
+        String id = request.getParameter("id");
 
         CadastroProdutosDAO dao = new CadastroProdutosDAO();
-        List<CadastroProdutoModel> lista = dao.listarComFiltro( nome, tipo, data);
+        List<CadastroProdutoModel> lista = dao.listarComFiltro( nome, tipo, data, id);
 
         String json = new Gson().toJson(lista);
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(json);
+
     }
+
 }
