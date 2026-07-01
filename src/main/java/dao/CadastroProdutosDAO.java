@@ -28,8 +28,9 @@ public class CadastroProdutosDAO {
 
             stmt.setString(2, Produto.getNomeProduto());
             stmt.setString(3, Produto.getFabricante());
-            stmt.setString(4, Produto.getDataFabricacao());
-            stmt.setString(5, Produto.getMarca());
+            stmt.setString(4, Produto.getMarca());
+            stmt.setString(5, Produto.getDataFabricacao());
+
             stmt.setString(6, Produto.getDataVencimento());
             stmt.setLong(7, Produto.getQuantidade());
             stmt.setString(8, Produto.getValor());
@@ -151,7 +152,7 @@ public class CadastroProdutosDAO {
 
                 while(rs.next()){
                     CadastroProdutoModel p = new CadastroProdutoModel();
-
+                    p.setId(rs.getInt("id"));
                     p.setCodigoBarras(rs.getString("codigo_barras"));
                     p.setNomeProduto(rs.getString("nome_produtos"));
                     p.setFabricante(rs.getString("fabricante"));

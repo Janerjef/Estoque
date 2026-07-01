@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="../css/gerenciamento.css" />
     <meta charset="UTF-8">
     <title>Gerenciamento</title>
 </head>
 <body>
+<header id="header">
+    <h1 id="tituloPrateleira">Sistema de Estoque</h1>
+    <nav id="menu">
+        <ul class="menu-lista">
+            <li><a href="projeto.html">Início</a></li>
+            <li><a href="gerenciamento.html" class="btn-menu">Prateleiras</a></li>
+            <li><a href="cadastroProdutos.html">Cadastro</a></li>
+            <li><a href="#" id="btnlogout">Sair</a></li>
+        </ul>
+    </nav>
+</header>
+
+<p id="subtitulo">Visualização de produtos por local de armazenamento</p>
+
+<main>
+    <div id="container-prateleiras"></div>
+    <p id="mensagem-vazio"><N>  </N>enhum produto cadastrado ainda.</p>
+</main>
+
+<script src="../js/prateleira.js"></script>
+<script src="../js/logout.js"></script>
 
 </body>
 </html>
