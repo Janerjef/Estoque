@@ -24,10 +24,9 @@
     <section id="form-container">
         <h2>EDITAR PRODUTO</h2>
         <form action="../api/produto/editar" method="post" id="FormCadastro">
-            <div>
-                <label>ID</label>
-                 <input type="text" name="id" id="campoid" />
-            </div>
+
+            <input type="hidden" name="id"/>
+
             <div class="linhas-form">
                 <label>Código de Barras</label>
                 <input type="text" name="codigoBarras" id = "codigoBarras"required />

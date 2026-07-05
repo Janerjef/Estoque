@@ -13,12 +13,14 @@ window.onload = async function () {
         document.querySelector('[name="fabricante"]').value = p.fabricante;
         document.querySelector('[name="Marca"]').value = p.marca;
         document.querySelector('[name="dataFabricacao"]').value = p.dataFabricacao;
-        document.querySelector('[name="dataVencimento"]').value = p.dataVencimento ?? "";
+        document.querySelector('[name="dataVencimento"]').value = p.datavencimento ?? "";
         document.querySelector('[name="quantidade"]').value = p.quantidade;
         document.querySelector('[name="Prateleira"]').value = p.prateleira;
         document.querySelector('[name="EstoqueMínimo"]').value = p.estoqueMínimo;
         document.querySelector('[name="valor"]').value = p.valor;
         document.querySelector('[name="total"]').value = p.total;
+        document.querySelector('[name="status"]').value = p.status;
+
 
     } catch (erro) {
         console.log("Erro ao carregar produto", erro);

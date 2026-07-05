@@ -30,7 +30,6 @@ public class CadastroProdutosDAO {
             stmt.setString(3, Produto.getFabricante());
             stmt.setString(4, Produto.getMarca());
             stmt.setString(5, Produto.getDataFabricacao());
-
             stmt.setString(6, Produto.getDataVencimento());
             stmt.setLong(7, Produto.getQuantidade());
             stmt.setString(8, Produto.getValor());
@@ -60,7 +59,7 @@ public class CadastroProdutosDAO {
                 "total = ?, " +
                 "status = ?, " +
                 "prateleira = ?," +
-                "estoque_minimo = ?" +
+                "estoque_minimo = ? " +
                 "WHERE id = ?";
 
         try (var con = ConnectionFactory.getConnection()) {
@@ -162,6 +161,7 @@ public class CadastroProdutosDAO {
                     p.setFabricante(rs.getString("fabricante"));
                     p.setMarca(rs.getString("marca"));
                     p.setDataFabricacao(rs.getString("data_fabricacao"));
+                    p.setDataVencimento(rs.getString("data_vencimento"));
                     p.setQuantidade(rs.getLong("quantidade"));
                     p.setValor(rs.getString("valor"));
                     p.setTotal(rs.getString("total"));
