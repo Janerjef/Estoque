@@ -132,6 +132,7 @@ public class CadastroProdutosDAO {
                 sql.append(" AND id = ?");
             }
 
+
             try(Connection conn = ConnectionFactory.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql.toString())){
 
@@ -145,6 +146,9 @@ public class CadastroProdutosDAO {
                 }
                 if(data != null && !data.isEmpty()){
                     stmt.setString(index++, data);
+                }
+                if (id != null && !id.isEmpty()) {
+                    stmt.setString(index++, id);
                 }
 
 
