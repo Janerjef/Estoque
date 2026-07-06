@@ -1,71 +1,81 @@
 body {
     height: 100vh;
+    display: flex;
     background: linear-gradient(150deg, var(--primary-dark), var(--primary-medium));
     align-items: center;
-    height: 100vh;
     justify-content: center;
-
 }
 
-/*contaier principal*/
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    box-shadow: 0px 8px 25px var(--shadow-default);
-    width: 47%;
-    height: 100vh;
-    color: rgb(0, 0, 0);
-    background-color: white;
-    margin-left: auto;
-    border-top-left-radius: 40px;
-    border-bottom-left-radius: 40px;
-    gap: 10px;
-
+    gap: 12px;
+    background-color: var(--white);
+    width: 420px;
+    padding: 48px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
 .container h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--gray-dark);
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+    letter-spacing: -1px;
 }
+
+.container p {
+    font-size: 13px;
+    color: var(--primary-medium);
+    margin-bottom: 8px;
+}
+
+.container p a {
+    color: var(--primary-dark);
+    font-weight: bold;
+    text-decoration: none;
+}
+
 label {
     display: block;
-    margin-bottom: 5px;
+    font-size: 13px;
     font-weight: bold;
     color: var(--gray-dark);
+    margin-bottom: 4px;
 }
 
 input {
-    width: 300px;
-    padding: 5px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+    width: 340px;
+    padding: 10px 14px;
+    border-radius: 8px;
     border: 1px solid var(--gray-medium);
-    transition: 0.3s;
-    box-sizing: border-box;
-
+    font-size: 14px;
+    transition: 0.2s;
 }
 
 input:focus {
     border-color: var(--primary-medium);
     outline: none;
-    box-shadow: 0 0 5px var(--primary-medium);
+    box-shadow: 0 0 0 3px rgba(85,85,85,0.15);
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--success);
-    border: none;
-    border-radius: 5px;
+button[type="submit"] {
+    width: 340px;
+    padding: 11px;
+    margin-top: 8px;
+    background-color: var(--primary-dark);
     color: var(--white);
-
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-button:hover {
-    background-color: var(--success-hover);
+button[type="submit"]:hover {
+    background-color: var(--primary-medium);
 }
-
