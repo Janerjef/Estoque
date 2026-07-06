@@ -4,13 +4,17 @@ package dao;
 import connection.ConnectionFactory;
 import model.PrateleiraModel;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PrateleiraDAO {
     public boolean cadastrar(PrateleiraModel prateleira){
         String sql = "INSERT INTO prateleiras" +
-                "(nome, descricao)" +
-                "VALUES (?, ? )";
+                "(nome, descricao) " +
+                "VALUES (?, ? ) ";
 
         try (var con = ConnectionFactory.getConnection()) {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -46,6 +50,29 @@ public class PrateleiraDAO {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public List<PrateleiraModel> listar(){
+        List<PrateleiraModel> lista = new ArrayList<>();
+        String sql = "SELECT * FROM prateleiras";
+
+        try(Connection conn = ConnectionFactory.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery() ){
+
+            while (rs.next()){
+                PrateleiraModel p = new PrateleiraModel();
+                p.setId(rs.getInt("id"));
+                p.setNome(rs.getString("nomePrateleira"));
+                p.setDescricao(rs.getString("descricaoPrateleira"));
+                lista.add(p);
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+
+        } return lista;
+
     }
 
 }
