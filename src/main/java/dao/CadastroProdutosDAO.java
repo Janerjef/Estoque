@@ -112,6 +112,36 @@ public class CadastroProdutosDAO {
 
     }
 
+    public CadastroProdutoModel buscarPorCodigoBarras(String codigoBarras){
+        String sql = "SELECT * FROM produtos WHERE codigo_barras = ? LIMIT 1";
+        try (var con = ConnectionFactory.getConnection()){
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, codigoBarras);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                CadastroProdutoModel p = new CadastroProdutoModel();
+                p.setId(rs.getInt("id"));
+                p.setCodigoBarras(rs.getString("codigo_barras"));
+                p.setNomeProduto(rs.getString("nome_produtos"));
+                p.setFabricante(rs.getString("fabricante"));
+                p.setMarca(rs.getString("marca"));
+                p.setDataFabricacao(rs.getString("data_fabricacao"));
+                p.setDataVencimento(rs.getString("data_vencimento"));
+                p.setQuantidade(rs.getLong("quantidade"));
+                p.setValor(rs.getString("valor"));
+                p.setTotal(rs.getString("total"));
+                p.setStatus(rs.getString("status"));
+                p.setPrateleira(rs.getString("prateleira"));
+                p.setEstoqueMínimo(rs.getInt("estoque_minimo"));
+
+                return p;
+            }
+        }catch (Exception e ){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
         public List<CadastroProdutoModel> listarComFiltro(String nome, String tipo, String data, String id){
             List<CadastroProdutoModel> lista = new ArrayList<>();
 

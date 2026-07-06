@@ -77,7 +77,7 @@ main { padding: 0 24px 40px; }
     background-color: var(--white);
     border: 1px solid var(--gray-medium);
     border-radius: 12px;
-    width: 260px;
+    width: 500px;
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
 }

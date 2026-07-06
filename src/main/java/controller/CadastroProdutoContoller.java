@@ -32,7 +32,18 @@ public class CadastroProdutoContoller extends HttpServlet {
         produto.setEstoqueMínimo(Integer.parseInt(request.getParameter("EstoqueMínimo")));
 
         CadastroProdutosDAO dao = new CadastroProdutosDAO();
-
+        if("saida".equals(produto.getStatus()) || "entrada".equals(produto.getStatus())){
+            CadastroProdutoModel existente = dao.buscarPorCodigoBarras(produto.getCodigoBarras());
+            if(existente != null){
+                long novaQuantidade = existente.getQuantidade() - produto.getQuantidade();
+                double valor = Double.parseDouble(existente.getValor());
+                existente.setQuantidade(novaQuantidade);
+                existente.setValor(String.valueOf(valor));
+                dao.atualizar(existente);
+                response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
+                return;
+            }
+        }
         if(dao.cadastrar(produto)) {
             response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
         }else{
