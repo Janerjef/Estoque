@@ -32,17 +32,58 @@ public class CadastroProdutoContoller extends HttpServlet {
         produto.setEstoqueMínimo(Integer.parseInt(request.getParameter("EstoqueMínimo")));
 
         CadastroProdutosDAO dao = new CadastroProdutosDAO();
-        if("saida".equals(produto.getStatus()) || "entrada".equals(produto.getStatus())){
+        if("saida".equals(produto.getStatus())){
             CadastroProdutoModel existente = dao.buscarPorCodigoBarras(produto.getCodigoBarras());
             if(existente != null){
                 long novaQuantidade = existente.getQuantidade() - produto.getQuantidade();
                 double valor = Double.parseDouble(existente.getValor());
                 existente.setQuantidade(novaQuantidade);
                 existente.setValor(String.valueOf(valor));
+                existente.setTotal(String.valueOf(novaQuantidade * Double.parseDouble(existente.getValor())));
+
+                produto.setNomeProduto(existente.getNomeProduto());
+                produto.setFabricante(existente.getFabricante());
+                produto.setMarca(existente.getMarca());
+                produto.setDataFabricacao(existente.getDataFabricacao());
+                produto.setDataVencimento(existente.getDataVencimento());
+                produto.setPrateleira(existente.getPrateleira());
+                produto.setEstoqueMínimo(existente.getEstoqueMínimo());
+
+                
                 dao.atualizar(existente);
                 response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
                 return;
             }
+
+
+        } else if("entrada".equals(produto.getStatus())){
+            CadastroProdutoModel existente = dao.buscarPorCodigoBarras(produto.getCodigoBarras());
+            if(existente != null){
+                long novaQuantidade = existente.getQuantidade() + produto.getQuantidade();
+                double valor = Double.parseDouble(existente.getValor());
+                existente.setQuantidade(novaQuantidade);
+                existente.setValor(String.valueOf(valor));
+                existente.setTotal(String.valueOf(novaQuantidade * Double.parseDouble(existente.getValor())));
+
+
+                produto.setNomeProduto(existente.getNomeProduto());
+                produto.setFabricante(existente.getFabricante());
+                produto.setMarca(existente.getMarca());
+                produto.setDataFabricacao(existente.getDataFabricacao());
+                produto.setDataVencimento(existente.getDataVencimento());
+                produto.setPrateleira(existente.getPrateleira());
+                produto.setEstoqueMínimo(existente.getEstoqueMínimo());
+
+
+
+                dao.atualizar(existente);
+                response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
+                return;
+            }
+
+
+
+
         }
         if(dao.cadastrar(produto)) {
             response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
