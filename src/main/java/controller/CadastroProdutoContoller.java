@@ -49,7 +49,7 @@ public class CadastroProdutoContoller extends HttpServlet {
                 produto.setPrateleira(existente.getPrateleira());
                 produto.setEstoqueMínimo(existente.getEstoqueMínimo());
 
-                
+
                 dao.atualizar(existente);
                 response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
                 return;
@@ -75,7 +75,7 @@ public class CadastroProdutoContoller extends HttpServlet {
                 produto.setEstoqueMínimo(existente.getEstoqueMínimo());
 
 
-
+                dao.cadastrar(produto); 
                 dao.atualizar(existente);
                 response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
                 return;

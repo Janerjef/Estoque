@@ -65,3 +65,13 @@ ALTER TABLE produtos
 
 ALTER TABLE produtos
     ADD COLUMN  estoque_minimo INT DEFAULT 0;
+
+CREATE TABLE prateleiras (
+                             id INT AUTO_INCREMENT PRIMARY KEY,
+                             nome VARCHAR(100) NOT NULL,
+                             descricao VARCHAR(255)
+);
+
+INSERT INTO prateleiras (nome, descricao)
+values ('Espaço 1','Local padrão de armazenamento de Produtos 1'),
+       ('Espaço 2', 'Local padrão de armazenamento de Produtos 2 ');
