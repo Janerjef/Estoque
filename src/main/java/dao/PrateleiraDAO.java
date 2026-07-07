@@ -62,7 +62,7 @@ public class PrateleiraDAO {
 
             while (rs.next()){
                 PrateleiraModel p = new PrateleiraModel();
-                p.setPrateleiraId(rs.getInt("prateleiraId"));
+                p.setPrateleiraId(rs.getInt("prateleira_id"));
                 p.setNome(rs.getString("nome"));
                 p.setDescricao(rs.getString("descricao"));
                 lista.add(p);

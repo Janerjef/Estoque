@@ -24,20 +24,16 @@ window.onload = async function () {
                 produto.prateleira.trim().toLowerCase() === prateleira.nome.trim().toLowerCase()
             );
 
-            const itens = produtosDaPrateleira.map(produto => {
-                const precisaRepor = produto.quantidade <= produto.estoqueMínimo;
-                const classeQtd = precisaRepor ? "produto-quantidade repor" : "produto-quantidade";
-                const labelQtd = precisaRepor
-                    ? `${produto.quantidade} Repor`
-                    : `Qtd: ${produto.quantidade}`;
-
-                return `
-                    <a class="produto-item" href="/pages/editarProduto.html?id=${produto.ID}">
-                        <span class="produto-nome" title="${produto.nomeProduto}">${produto.nomeProduto}</span>
-                        <span class="${classeQtd}">${labelQtd}</span>
-                    </a>
-                `;
-            }).join("");
+            const itens = produtosDaPrateleira.map(produto => `
+                <a class="produto-item" href="/pages/editarProduto.html?id=${produto.ID}">
+                    <span class="produto-nome" title="${produto.nomeProduto}">
+                        ${produto.nomeProduto}
+                    </span>
+                    <span class="produto-quantidade">
+                        Qtd: ${produto.quantidade}
+                    </span>
+                </a>
+            `).join("");
 
             container.innerHTML += `
                 <div class="card-prateleira">
@@ -47,9 +43,7 @@ window.onload = async function () {
                     </div>
 
                     <div class="card-body-prateleira">
-                        ${
-                itens || `<p class="produto-item">Nenhum produto nessa prateleira</p>`
-            }
+                        ${itens || `<p class="produto-item">Nenhum produto nessa prateleira</p>`}
                     </div>
 
                     <div class="card-footer-prateleira">

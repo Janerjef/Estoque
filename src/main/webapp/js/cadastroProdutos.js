@@ -1,9 +1,8 @@
-window.onload = function () {
+window.onload = async function () {
     const inputValor = document.querySelector('input[name="valor"]');
-    const inputQtd   = document.querySelector('input[name="quantidade"]');
+    const inputQtd = document.querySelector('input[name="quantidade"]');
     const inputTotal = document.querySelector('input[name="total"]');
-    const inputPrateleira = document.querySelector('input [name="Prateleira"]');
-
+    const selectPrateleira = document.querySelector('#prateleira_id');
 
     if (inputValor && inputQtd && inputTotal) {
         function calcular() {
@@ -14,6 +13,22 @@ window.onload = function () {
 
         inputValor.addEventListener("input", calcular);
         inputQtd.addEventListener("input", calcular);
+    }
 
+    try {
+        const response = await fetch("/Prateleira");
+        const prateleiras = await response.json();
+
+        prateleiras.forEach(prateleira => {
+            const option = document.createElement("option");
+
+            option.value = prateleira.nome;
+            option.textContent = prateleira.nome;
+
+            selectPrateleira.appendChild(option);
+        });
+
+    } catch (erro) {
+        console.log("Erro ao carregar prateleiras", erro);
     }
 };
