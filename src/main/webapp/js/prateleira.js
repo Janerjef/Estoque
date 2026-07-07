@@ -3,17 +3,20 @@ window.onload = async function () {
         const response = await fetch("/Prateleira");
         const prateleiras = await response.json();
 
+        const responseProdutos = await fetch("/Estoque");
+        const produtos = await responseProdutos.json();
+
         const container = document.getElementById("container-prateleiras");
         const msgVazio = document.getElementById("mensagem-vazio");
 
-        if (!produtos || produtos.length === 0) {
+        if (!prateleiras || prateleiras.length === 0) {
             msgVazio.style.display = "block";
             return;
         }
 
         // agrupa os produtos por prateleira
         const grupos = {};
-        produtos.forEach(p => {
+        prateleiras.forEach(p => {
             const chave = p.prateleira && p.prateleira.trim() !== ""
                 ? p.prateleira
                 : "Sem prateleira";

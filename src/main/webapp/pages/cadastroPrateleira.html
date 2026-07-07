@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/color.css" />
+    <link rel="stylesheet" href="../css/cadastroDeProduto.css" />
+    <title>Cadastro de Prateleira</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header id="header">
+    <h1 id="tituloDashboard">Sistema de Estoque</h1>
+    <nav>
+        <ul>
+            <li><a href="projeto.html">Inicio</a></li>
+            <li><a href="gerenciamento.html">Gerenciamento</a></li>
+            <li><a href="#" id="btnlogout">Sair</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="form-container">
+        <h2>Cadastro de Prateleira</h2>
+
+        <form action="../Prateleira" method="post" id="FormCadastroPrateleira">
+            <div class="linhas-form">
+                <label for="nomePrateleira">Nome da Prateleira</label>
+                <input type="text" id="nomePrateleira" name="nomePrateleira" required />
+            </div>
+
+            <div class="linhas-form">
+                <label for="descricaoPrateleira">Descricao</label>
+                <input type="text" id="descricaoPrateleira" name="descricaoPrateleira" required />
+            </div>
+
+            <div class="acoes-form">
+                <button type="submit" class="btn-salvar">Salvar</button>
+                <a href="gerenciamento.html" class="btn-cancelar">Cancelar</a>
+            </div>
+        </form>
+    </section>
+</main>
+
+<script src="../js/logout.js"></script>
+</body>
+</html>
