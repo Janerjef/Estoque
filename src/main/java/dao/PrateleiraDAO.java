@@ -31,7 +31,7 @@ public class PrateleiraDAO {
     }
 
     public boolean atualizar(PrateleiraModel prateleira){
-        String sql = "UPDATE prateleiras SET" +
+        String sql = "UPDATE prateleiras SET " +
                 "nome = ?, " +
                 "descricao = ? " +
                 "WHERE id = ?";
@@ -42,7 +42,7 @@ public class PrateleiraDAO {
 
             stmt.setString(1,prateleira.getNome());
             stmt.setString(2,prateleira.getDescricao());
-            stmt.setInt(3,prateleira.getId());
+            stmt.setInt(3,prateleira.getPrateleiraId());
             stmt.executeUpdate();
 
             return true;
@@ -62,9 +62,9 @@ public class PrateleiraDAO {
 
             while (rs.next()){
                 PrateleiraModel p = new PrateleiraModel();
-                p.setId(rs.getInt("id"));
-                p.setNome(rs.getString("nomePrateleira"));
-                p.setDescricao(rs.getString("descricaoPrateleira"));
+                p.setPrateleiraId(rs.getInt("prateleiraId"));
+                p.setNome(rs.getString("nome"));
+                p.setDescricao(rs.getString("descricao"));
                 lista.add(p);
             }
 

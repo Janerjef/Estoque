@@ -1,16 +1,16 @@
 package model;
 
 public class PrateleiraModel {
-    private int id;
+    private int prateleiraId;
     private String nome;
     private String descricao;
 
-    public int getId() {
-        return id;
+    public int getPrateleiraId() {
+        return prateleiraId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPrateleiraId(int prateleiraId) {
+        this.prateleiraId = prateleiraId;
     }
 
     public String getNome() {

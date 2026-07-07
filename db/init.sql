@@ -75,3 +75,12 @@ CREATE TABLE prateleiras (
 INSERT INTO prateleiras (nome, descricao)
 values ('Espaço 1','Local padrão de armazenamento de Produtos 1'),
        ('Espaço 2', 'Local padrão de armazenamento de Produtos 2 ');
+
+ALTER TABLE produtos
+    DROP COLUMN prateleira;
+
+ALTER TABLE produtos
+    ADD COLUMN prateleira_id INT;
+
+ALTER TABLE produtos ADD CONSTRAINT fk_prateleira
+    FOREIGN KEY (prateleira_id) REFERENCES prateleiras(id);
