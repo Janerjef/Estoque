@@ -22,7 +22,7 @@ window.onload = async function () {
         prateleiras.forEach(prateleira => {
             const option = document.createElement("option");
 
-            option.value = prateleira.nome;
+            option.value = prateleira.prateleiraId;
             option.textContent = prateleira.nome;
 
             selectPrateleira.appendChild(option);

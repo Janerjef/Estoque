@@ -20,8 +20,7 @@ window.onload = async function () {
 
         prateleiras.forEach(prateleira => {
             const produtosDaPrateleira = produtos.filter(produto =>
-                produto.prateleira &&
-                produto.prateleira.trim().toLowerCase() === prateleira.nome.trim().toLowerCase()
+                String(produto.prateleira) === String(prateleira.prateleiraId)
             );
 
             const itens = produtosDaPrateleira.map(produto => `
