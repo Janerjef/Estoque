@@ -12,7 +12,7 @@ import java.util.List;
 
 public class PrateleiraDAO {
     public boolean cadastrar(PrateleiraModel prateleira){
-        String sql = "INSERT INTO prateleiras" +
+        String sql = "INSERT INTO prateleiras " +
                 "(nome, descricao) " +
                 "VALUES (?, ? ) ";
 

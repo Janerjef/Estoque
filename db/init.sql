@@ -84,3 +84,6 @@ ALTER TABLE produtos
 
 ALTER TABLE produtos ADD CONSTRAINT fk_prateleira
     FOREIGN KEY (prateleira_id) REFERENCES prateleiras(id);
+
+ALTER TABLE prateleiras
+    RENAME COLUMN id TO prateleira_id;

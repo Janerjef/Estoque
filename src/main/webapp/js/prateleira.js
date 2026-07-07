@@ -1,7 +1,7 @@
 window.onload = async function () {
     try {
-        const response = await fetch("/api/estoque");
-        const produtos = await response.json();
+        const response = await fetch("/Prateleira");
+        const prateleiras = await response.json();
 
         const container = document.getElementById("container-prateleiras");
         const msgVazio = document.getElementById("mensagem-vazio");
