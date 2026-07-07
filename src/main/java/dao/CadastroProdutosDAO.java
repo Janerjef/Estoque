@@ -196,7 +196,7 @@ public class CadastroProdutosDAO {
                     p.setValor(rs.getString("valor"));
                     p.setTotal(rs.getString("total"));
                     p.setStatus(rs.getString("status"));
-                    p.setPrateleira(rs.getString("prateleira"));
+                    p.setPrateleira(rs.getString("prateleira_id"));
                     p.setEstoqueMínimo(rs.getInt("estoque_minimo"));
 
                     lista.add(p);

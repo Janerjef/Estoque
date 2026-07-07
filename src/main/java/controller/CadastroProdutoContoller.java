@@ -21,7 +21,7 @@ public class CadastroProdutoContoller extends HttpServlet {
         produto.setCodigoBarras(request.getParameter("codigoBarras"));
         produto.setNomeProduto(request.getParameter("nomeProduto"));
         produto.setFabricante(request.getParameter("fabricante"));
-        produto.setMarca(request.getParameter("Marca"));
+        produto.setMarca(request.getParameter("marca"));
         produto.setDataFabricacao(request.getParameter("dataFabricacao"));
         produto.setDataVencimento(request.getParameter("dataVencimento"));
         produto.setQuantidade(Long.parseLong(request.getParameter("quantidade")));

@@ -2,6 +2,7 @@ window.onload = async function () {
     try {
         const params = new URLSearchParams(window.location.search);
         const id = params.get("id");
+        
 
         const response = await fetch("/api/estoque?id=" + id);
         const dados = await response.json();
@@ -15,7 +16,7 @@ window.onload = async function () {
         document.querySelector('[name="dataFabricacao"]').value = p.dataFabricacao;
         document.querySelector('[name="dataVencimento"]').value = p.datavencimento ?? "";
         document.querySelector('[name="quantidade"]').value = p.quantidade;
-        document.querySelector('[name="Prateleira"]').value = p.prateleira;
+        document.querySelector('[name="prateleira_id"]').value = p.prateleira;
         document.querySelector('[name="EstoqueMínimo"]').value = p.estoqueMínimo;
         document.querySelector('[name="valor"]').value = p.valor;
         document.querySelector('[name="total"]').value = p.total;
