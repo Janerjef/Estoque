@@ -29,7 +29,7 @@ public class CadastroUsuarioModel {
     private String nomeUsuario;
     private String senha;
     private String funcao;
-    
+
     public CadastroUsuarioModel () {   
     }
     
@@ -176,4 +176,6 @@ public class CadastroUsuarioModel {
     public void setTelefone (String telefone) {
         this.telefone = telefone;
     }
+
+
 }

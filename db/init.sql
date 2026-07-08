@@ -87,3 +87,6 @@ ALTER TABLE produtos ADD CONSTRAINT fk_prateleira
 
 ALTER TABLE prateleiras
     RENAME COLUMN id TO prateleira_id;
+
+ALTER TABLE produtos
+    ADD COLUMN tipo VARCHAR(20) DEFAULT 'saldo';

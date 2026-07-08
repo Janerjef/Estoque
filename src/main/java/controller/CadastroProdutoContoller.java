@@ -32,59 +32,39 @@ public class CadastroProdutoContoller extends HttpServlet {
         produto.setEstoqueMínimo(Integer.parseInt(request.getParameter("EstoqueMínimo")));
 
         CadastroProdutosDAO dao = new CadastroProdutosDAO();
-        if("saida".equals(produto.getStatus())){
-            CadastroProdutoModel existente = dao.buscarPorCodigoBarras(produto.getCodigoBarras());
-            if(existente != null){
-                long novaQuantidade = existente.getQuantidade() - produto.getQuantidade();
-                double valor = Double.parseDouble(existente.getValor());
-                existente.setQuantidade(novaQuantidade);
-                existente.setValor(String.valueOf(valor));
-                existente.setTotal(String.valueOf(novaQuantidade * Double.parseDouble(existente.getValor())));
 
-                produto.setNomeProduto(existente.getNomeProduto());
-                produto.setFabricante(existente.getFabricante());
-                produto.setMarca(existente.getMarca());
-                produto.setDataFabricacao(existente.getDataFabricacao());
-                produto.setDataVencimento(existente.getDataVencimento());
-                produto.setPrateleira(existente.getPrateleira());
-                produto.setEstoqueMínimo(existente.getEstoqueMínimo());
+        CadastroProdutoModel existente = dao.buscarPorCodigoBarras(produto.getCodigoBarras());
 
+        if(existente != null){
+            double valor = Double.parseDouble(existente.getValor());
+            long novaQuantidade;
 
-                dao.atualizar(existente);
-                response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
-                return;
+            if("saida".equals(produto.getStatus())){
+                novaQuantidade = existente.getQuantidade() - produto.getQuantidade();
+            }else {
+                novaQuantidade = existente.getQuantidade() + produto.getQuantidade();
             }
 
-
-        } else if("entrada".equals(produto.getStatus())){
-            CadastroProdutoModel existente = dao.buscarPorCodigoBarras(produto.getCodigoBarras());
-            if(existente != null){
-                long novaQuantidade = existente.getQuantidade() + produto.getQuantidade();
-                double valor = Double.parseDouble(existente.getValor());
-                existente.setQuantidade(novaQuantidade);
-                existente.setValor(String.valueOf(valor));
-                existente.setTotal(String.valueOf(novaQuantidade * Double.parseDouble(existente.getValor())));
+            existente.setQuantidade(novaQuantidade);
+            existente.setTotal(String.valueOf(novaQuantidade * valor));
+            dao.atualizar(existente);
 
 
-                produto.setNomeProduto(existente.getNomeProduto());
-                produto.setFabricante(existente.getFabricante());
-                produto.setMarca(existente.getMarca());
-                produto.setDataFabricacao(existente.getDataFabricacao());
-                produto.setDataVencimento(existente.getDataVencimento());
-                produto.setPrateleira(existente.getPrateleira());
-                produto.setEstoqueMínimo(existente.getEstoqueMínimo());
+            produto.setNomeProduto(existente.getNomeProduto());
+            produto.setFabricante(existente.getFabricante());
+            produto.setMarca(existente.getMarca());
+            produto.setPrateleira(existente.getPrateleira());
+            produto.setValor(existente.getValor());
+            produto.setTotal(String.valueOf(produto.getQuantidade() * valor));
+            produto.setTipo("movimentacao"); // diferencia do saldo
+            dao.cadastrar(produto);
 
-
-                dao.cadastrar(produto); 
-                dao.atualizar(existente);
-                response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
-                return;
-            }
-
-
-
-
+            response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
+            return;
         }
+        produto.setTipo("saldo");
+        dao.cadastrar(produto);
+
         if(dao.cadastrar(produto)) {
             response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
         }else{

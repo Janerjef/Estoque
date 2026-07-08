@@ -145,7 +145,7 @@ public class CadastroProdutosDAO {
         public List<CadastroProdutoModel> listarComFiltro(String nome, String tipo, String data, String id){
             List<CadastroProdutoModel> lista = new ArrayList<>();
 
-            StringBuilder sql = new StringBuilder("SELECT * FROM produtos WHERE 1=1");
+            StringBuilder sql = new StringBuilder("SELECT * FROM produtos WHERE 1=1 AND tipo = 'saldo' ");
 
 
             if(nome != null && !nome.isEmpty()){

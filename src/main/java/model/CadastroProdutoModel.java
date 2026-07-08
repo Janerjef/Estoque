@@ -20,6 +20,7 @@ public class CadastroProdutoModel {
     private String status;
     private String prateleira;
     private int estoqueMínimo;
+    private String tipo;
 
     public CadastroProdutoModel() {
     }
@@ -59,6 +60,7 @@ public class CadastroProdutoModel {
     public String getMarca() {
         return this.marca;
     }
+
 
     public void setMarca(String marca) {
         this.marca = marca;
@@ -123,5 +125,9 @@ public class CadastroProdutoModel {
     public int getEstoqueMínimo() {return estoqueMínimo ;}
 
     public void setEstoqueMínimo(int estoqueMínimo){ this.estoqueMínimo = estoqueMínimo ;}
+
+    public String getTipo(){ return tipo; }
+
+    public void setTipo(String prateleira){ this.tipo = tipo;}
 
 }
