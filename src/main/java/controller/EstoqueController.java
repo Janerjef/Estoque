@@ -21,14 +21,12 @@ public class EstoqueController extends HttpServlet {
         String tipo = request.getParameter("tipo");
         String data = request.getParameter("data");
         String id = request.getParameter("id");
+        String registro = request.getParameter("registro");
 
 
-        if( tipo != null && !tipo.isEmpty()){
-            sql.append(" AND tipo = ?");
-        }
 
         CadastroProdutosDAO dao = new CadastroProdutosDAO();
-        List<CadastroProdutoModel> lista = dao.listarComFiltro( nome, tipo, data, id);
+        List<CadastroProdutoModel> lista = dao.listarComFiltro( nome, tipo, data, id, registro);
 
         String json = new Gson().toJson(lista);
 

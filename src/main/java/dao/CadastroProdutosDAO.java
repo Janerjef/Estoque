@@ -143,19 +143,23 @@ public class CadastroProdutosDAO {
         return null;
     }
 
-        public List<CadastroProdutoModel> listarComFiltro(String nome, String tipo, String data, String id){
+        public List<CadastroProdutoModel> listarComFiltro(String nome, String tipo, String data, String id, String registro){
             List<CadastroProdutoModel> lista = new ArrayList<>();
 
-            StringBuilder sql = new StringBuilder("SELECT * FROM produtos WHERE 1=1 AND tipo = 'saldo' ");
+            if(registro == null || registro.isEmpty()){
+                registro = "saldo";
+            } // para essa validação acontecer antes de montar a consulta e o tipo/registro ser definido
+
+            StringBuilder sql = new StringBuilder("SELECT * FROM produtos WHERE 1=1 AND tipo = ? ");
 
 
             if(nome != null && !nome.isEmpty()){
-                sql.append(" AND LOWER( nome_produto ) LIKE ?");
+                sql.append(" AND LOWER( nome_produtos ) LIKE ?");
             }
-            if(tipo != null && tipo.isEmpty()){
+            if(tipo != null && !tipo.isEmpty()){
                 sql.append(" AND status = ?");
             }
-            if(data != null && data.isEmpty()){
+            if(data != null && !data.isEmpty()){
                 sql.append(" AND data_fabricacao = ?");
             }
             if (id != null && !id.isEmpty()) {
@@ -163,11 +167,14 @@ public class CadastroProdutosDAO {
             }
 
 
+
             try(Connection conn = ConnectionFactory.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql.toString())){
 
                 int index = 1;
 
+
+                stmt.setString(index++, registro);
                 if(nome != null && !nome.isEmpty()){
                     stmt.setString(index++, "%" + nome.toLowerCase()+ "$");
                 }
