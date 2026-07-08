@@ -176,10 +176,10 @@ public class CadastroProdutosDAO {
 
 
                 if(nome != null && !nome.isEmpty()){
-                    stmt.setString(index++, "%" + nome.toLowerCase()+ "$");
+                    stmt.setString(index++, "%" + nome.toLowerCase()+ "%");
                 }
                 if(tipo != null && !tipo.isEmpty()){
-                    stmt.setString(index++, "%" );
+                    stmt.setString(index++, tipo );
                 }
                 if(data != null && !data.isEmpty()){
                     stmt.setString(index++, data);

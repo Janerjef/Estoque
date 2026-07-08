@@ -14,7 +14,7 @@ async function carregarEstoque(){
               <td>${item.marca}</td>
               <td>${item.quantidade}</td>
               <td>${item.valor}</td>
-              <td>${item.tipo}</td>
+              <td>${item.status}</td>
               <td>${item.total}</td>
           </tr>    
           `;
