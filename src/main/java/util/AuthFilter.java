@@ -35,7 +35,9 @@ public class AuthFilter implements Filter {
         String perfil = (String) session.getAttribute("perfil");
 
         if (!"Administrador".equals(perfil)
+
                 && !uri.contains("/pages/projeto.html")
+                && !uri.contains("/pages/gerenciamento.html")
                 && !uri.contains("/Prateleira")
                 && !uri.endsWith("/api/estoque")
                 && !uri.endsWith("/api/resumo")
