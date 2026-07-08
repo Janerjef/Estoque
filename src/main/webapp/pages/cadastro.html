@@ -45,7 +45,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         <label for ="senha">Senha</label>
                         <input type ="password" name="senha" id="senha" placeholder="Digite a senha" />
                         <label for="funcao">Função</label>
-                        <input type="text" name="funcao" id="funcao" placeholder="Digite a sua Função" />
+                        <select name="funcao" id="funcao" required>
+                            <option value="" disabled selected>Selecione a função</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Espectador">Espectador</option>
+                        </select>
+
                     </div>
                     <div class="containerEndereco"> 
                         <label for="cep">CEP</label>
