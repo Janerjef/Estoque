@@ -21,7 +21,7 @@ window.onload = async function () {
         prateleiras.forEach(prateleira => {
             const produtosDaPrateleira = produtos.filter(produto =>
                 String(produto.prateleira) === String(prateleira.prateleiraId)
-            );
+            ); // filtra produtos da prateleira
 
             const itens = produtosDaPrateleira.map(produto => `
                 <a class="produto-item" href="/pages/editarProduto.html?id=${produto.ID}">
@@ -32,12 +32,12 @@ window.onload = async function () {
                         Qtd: ${produto.quantidade}
                     </span>
                 </a>
-            `).join("");
+            `).join(""); //transforma cada produto em um link de html  depois leva pra tela de edição
 
             container.innerHTML += `
                 <div class="card-prateleira">
                     <div class="card-header-prateleira">
-                        <span class="icone">📦</span>
+                        
                         <h3>${prateleira.nome}</h3>
                     </div>
 
