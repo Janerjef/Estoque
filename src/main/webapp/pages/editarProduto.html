@@ -30,7 +30,7 @@
 
             <div class="linhas-form">
                 <label>Código de Barras</label>
-                <input type="text" name="codigoBarras" id = "codigoBarras"required />
+                <input type="text" name="codigoBarras" id = "codigoBarras" readonly />
             </div>
             <div class="linhas-form">
                 <label>Nome do Produto</label>
@@ -80,12 +80,13 @@
             </div>
             <div class="linhas-form">
                 <label>Tipo de Movimentação</label>
-                <select name="status" required>
+                <select name="status" disabled>
                     <option value="" disabled selected>Selecione</option>
                     <option value="entrada">Entrada</option>
                     <option value="saida">Saída</option>
                 </select>
             </div>
+            <input type="hidden" name="status" id="statusHidden">
             <div class="acoes-form">
                 <button type="submit" class="btn-salvar">Salvar</button>
                 <a href="projeto.html" class="btn-cancelar">Cancelar</a>

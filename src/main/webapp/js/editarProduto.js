@@ -30,7 +30,8 @@ window.onload = async function () {
         document.querySelector('[name="EstoqueMínimo"]').value = p.estoqueMínimo;
         document.querySelector('[name="valor"]').value = p.valor;
         document.querySelector('[name="total"]').value = p.total;
-        document.querySelector('[name="status"]').value = p.status;
+        document.querySelector('#statusVisual').value = p.status;
+        document.querySelector('#statusHidden').value = p.status;
 
 
     } catch (erro) {

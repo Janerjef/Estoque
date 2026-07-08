@@ -34,7 +34,11 @@ public class EditarProdutoController extends HttpServlet {
 
 
         CadastroProdutosDAO dao = new CadastroProdutosDAO();
+        produto.setTipo("movimentacao");
         if (dao.atualizar(produto)) {
+
+
+
             response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
         } else {
             response.sendRedirect(request.getContextPath() + "/pages/cadastroProdutos.html");

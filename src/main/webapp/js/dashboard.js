@@ -35,7 +35,7 @@ async function carregarResumo(){
         document.getElementById("cardSaida").innerHTML = dados.saida ?? 0;
         document.getElementById("cardTotal").innerHTML = dados.total ?? 0;
     }catch(erro){
-        console.log("Erro da consulta dos daods", erro);
+        console.log("Erro da consulta dos dados", erro);
 
     }
 }

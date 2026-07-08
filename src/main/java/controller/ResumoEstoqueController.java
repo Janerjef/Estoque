@@ -21,9 +21,10 @@ public class ResumoEstoqueController extends HttpServlet {
 
             String sql = """
                         SELECT 
-                            SUM(CASE WHEN status = 'entrada' THEN quantidade ELSE 0 END) AS entrada,
-                            SUM(CASE WHEN status = 'saida' THEN quantidade ELSE 0 END) AS saida 
-                            FROM produtos
+                            SUM(CASE WHEN  tipo = 'movimentacao' AND status = 'entrada' THEN quantidade ELSE 0 END) AS entrada,
+                            SUM(CASE WHEN  tipo = 'movimentacao' AND status = 'saida' THEN quantidade ELSE 0 END) AS saida ,
+                            SUM(CASE WHEN tipo = 'saldo' THEN quantidade ELSE 0 END) AS total
+                        FROM produtos
                         """;
 
             try(Connection conn = ConnectionFactory.getConnection();
@@ -31,13 +32,16 @@ public class ResumoEstoqueController extends HttpServlet {
             ResultSet rs = stmt.executeQuery()){
                 int saida = 0;
                 int entrada = 0;
+                int total = 0;
+
 
                 if(rs.next()){
                     entrada = rs.getInt("entrada");
                     saida = rs.getInt("saida");
+                    total = rs.getInt("total");
                 }
 
-                int total = entrada - saida;
+
 
                 Map<String, Integer> resultado = new HashMap<>();
                 resultado.put("entrada", entrada);
