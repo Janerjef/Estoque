@@ -1,6 +1,6 @@
 async function carregarEstoque(){
     try {
-        const response = await fetch("/api/estoque");
+        const response = await fetch("/api/estoque?registro=movimentacao");
         const dados = await response.json();
         const tabela = document.getElementById("corpoTabela");
         tabela.innerHTML= "";
@@ -14,6 +14,7 @@ async function carregarEstoque(){
               <td>${item.marca}</td>
               <td>${item.quantidade}</td>
               <td>${item.valor}</td>
+              <td>${item.tipo}</td>
               <td>${item.total}</td>
           </tr>    
           `;

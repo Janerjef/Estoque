@@ -172,9 +172,9 @@ public class CadastroProdutosDAO {
             PreparedStatement stmt = conn.prepareStatement(sql.toString())){
 
                 int index = 1;
-
-
                 stmt.setString(index++, registro);
+
+
                 if(nome != null && !nome.isEmpty()){
                     stmt.setString(index++, "%" + nome.toLowerCase()+ "$");
                 }
