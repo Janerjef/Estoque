@@ -128,6 +128,6 @@ public class CadastroProdutoModel {
 
     public String getTipo(){ return tipo; }
 
-    public void setTipo(String prateleira){ this.tipo = tipo;}
+    public void setTipo(String tipo){ this.tipo = tipo;}
 
 }

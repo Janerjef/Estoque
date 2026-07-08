@@ -63,7 +63,6 @@ public class CadastroProdutoContoller extends HttpServlet {
             return;
         }
         produto.setTipo("saldo");
-        dao.cadastrar(produto);
 
         if(dao.cadastrar(produto)) {
             response.sendRedirect(request.getContextPath() + "/pages/projeto.html");

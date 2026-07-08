@@ -15,8 +15,8 @@ public class CadastroProdutosDAO {
 
     public boolean cadastrar(CadastroProdutoModel Produto) {
         String sql = "INSERT INTO produtos" +
-                "(codigo_barras,nome_produtos,fabricante,marca,data_fabricacao,data_vencimento,quantidade,valor,total,status,prateleira_id,estoque_minimo)"
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,? )";
+                "(codigo_barras,nome_produtos,fabricante,marca,data_fabricacao,data_vencimento,quantidade,valor,total,status,prateleira_id,estoque_minimo, tipo)"
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?, ? )";
         // executa um comando em sql
         try (var con = ConnectionFactory.getConnection()) {
             //chama a a função do connection factory para abrir uma conexão
@@ -37,6 +37,7 @@ public class CadastroProdutosDAO {
             stmt.setString(10, Produto.getStatus());
             stmt.setString(11, Produto.getPrateleira());
             stmt.setInt(12, Produto.getEstoqueMínimo());
+            stmt.setString(13, Produto.getTipo());
             stmt.executeUpdate();
             // atualiza no banco
             return true;

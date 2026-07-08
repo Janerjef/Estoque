@@ -22,6 +22,11 @@ public class EstoqueController extends HttpServlet {
         String data = request.getParameter("data");
         String id = request.getParameter("id");
 
+
+        if( tipo != null && !tipo.isEmpty()){
+            sql.append(" AND tipo = ?");
+        }
+
         CadastroProdutosDAO dao = new CadastroProdutosDAO();
         List<CadastroProdutoModel> lista = dao.listarComFiltro( nome, tipo, data, id);
 
