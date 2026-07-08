@@ -25,7 +25,7 @@ public class PrateleiraController extends HttpServlet {
             PrateleiraDAO dao = new PrateleiraDAO();
 
             if(dao.cadastrar(prateleira)) {
-                response.sendRedirect(request.getContextPath() +"/index.html");
+                response.sendRedirect(request.getContextPath() +"/pages/gerenciamento.html");
             } else {
                 response.sendRedirect(request.getContextPath() + "/pages/cadastroPrateleira.html");
             }

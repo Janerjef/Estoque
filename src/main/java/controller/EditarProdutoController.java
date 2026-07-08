@@ -29,7 +29,7 @@ public class EditarProdutoController extends HttpServlet {
         produto.setTotal(request.getParameter("total"));
         produto.setStatus(request.getParameter("status"));
         produto.setId(Integer.parseInt(request.getParameter("id")));
-        produto.setPrateleira(request.getParameter("Prateleira"));
+        produto.setPrateleira(request.getParameter("prateleira_id"));
         produto.setEstoqueMínimo(Integer.parseInt(request.getParameter("EstoqueMínimo")));
 
 

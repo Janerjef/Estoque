@@ -3,7 +3,7 @@ body {
     min-height: 100vh;
 }
 
-/* ── Header ── */
+/* Header */
 #header {
     background-color: var(--white);
     box-shadow: 0 1px 4px var(--shadow-default);
@@ -16,20 +16,22 @@ body {
     z-index: 10;
 }
 
-#tituloDashboard {
-    font-size: 20px;
+#tituloDashboard,
+#tituloCadastro {
+    font-size: 32px;
     font-weight: bold;
     color: var(--primary-dark);
-    letter-spacing: -0.5px;
+    letter-spacing: 0;
+    line-height: 1.2;
 }
 
-nav ul {
+.menu-lista {
     display: flex;
     gap: 8px;
     list-style: none;
 }
 
-nav ul li a {
+.menu-lista li a {
     text-decoration: none;
     color: var(--primary-medium);
     font-size: 14px;
@@ -39,12 +41,22 @@ nav ul li a {
     transition: 0.2s;
 }
 
-nav ul li a:hover {
+.menu-lista li a:hover {
     background-color: var(--gray-light);
     color: var(--primary-dark);
 }
 
-/* ── Form ── */
+.btn-menu {
+    background-color: var(--primary-dark) !important;
+    color: var(--white) !important;
+    border-radius: 8px !important;
+}
+
+.btn-menu:hover {
+    opacity: 0.85;
+}
+
+/* Form */
 main {
     max-width: 720px;
     margin: 40px auto;
@@ -100,7 +112,7 @@ main {
 .linhas-form select:focus,
 .grupo-form input:focus {
     border-color: var(--primary-dark);
-    box-shadow: 0 0 0 3px rgba(26,26,26,0.08);
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.08);
 }
 
 .grupo-form {
@@ -110,7 +122,7 @@ main {
     margin-bottom: 16px;
 }
 
-/* ── Ações ── */
+/* Ações */
 .acoes-form {
     display: flex;
     justify-content: space-between;

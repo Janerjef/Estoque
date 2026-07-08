@@ -34,7 +34,8 @@ public class AuthFilter implements Filter {
 
         String perfil = (String) session.getAttribute("perfil");
 
-        if(uri.contains("cadastroProduto") && !"Administrador".equals(perfil)){
+        if((uri.contains("cadastroProduto") || uri.contains("cadastroPrateleira") ||
+                uri.contains("api/produto/editar")) && !"Administrador".equals(perfil)){
             res.sendError(HttpServletResponse.SC_FORBIDDEN);
             return;
         }

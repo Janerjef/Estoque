@@ -73,8 +73,8 @@ CREATE TABLE prateleiras (
 );
 
 INSERT INTO prateleiras (nome, descricao)
-values ('Espaço 1','Local padrão de armazenamento de Produtos 1'),
-       ('Espaço 2', 'Local padrão de armazenamento de Produtos 2 ');
+values ('Espaco 1','Local padrão de armazenamento de Produtos 1'),
+       ('Espaco 2', 'Local padrão de armazenamento de Produtos 2 ');
 
 ALTER TABLE produtos
     DROP COLUMN prateleira;

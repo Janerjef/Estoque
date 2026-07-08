@@ -2,7 +2,17 @@ window.onload = async function () {
     try {
         const params = new URLSearchParams(window.location.search);
         const id = params.get("id");
-        
+        const selectPrateleira = document.querySelector('#prateleira_id');
+
+        const responsePrateleiras = await fetch("/Prateleira");
+        const prateleiras = await responsePrateleiras.json();
+
+        prateleiras.forEach(prateleira => {
+            const option = document.createElement("option");
+            option.value = prateleira.prateleiraId;
+            option.textContent = prateleira.nome;
+            selectPrateleira.appendChild(option);
+        })
 
         const response = await fetch("/api/estoque?id=" + id);
         const dados = await response.json();
