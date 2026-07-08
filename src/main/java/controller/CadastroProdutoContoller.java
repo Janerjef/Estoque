@@ -49,6 +49,8 @@ public class CadastroProdutoContoller extends HttpServlet {
             existente.setTotal(String.valueOf(novaQuantidade * valor));
             dao.atualizar(existente);
 
+            //existente se refere ao produto já existente no gerenciamento ( bloqueando o cadastro de um novo )
+
 
             produto.setNomeProduto(existente.getNomeProduto());
             produto.setFabricante(existente.getFabricante());
